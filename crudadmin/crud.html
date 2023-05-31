@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <title>Administracion de Medicos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <table>
+        <tr>
+            <form autocomplete="off" onsubmit="onFormSubmit()">
+                <div>
+                    <label for="RFC">   Ingresar RFC </label>
+                    <input type="text" name="RFC" id="RFC">
+                </div>
+                <div>
+                    <label for="Nombre">   Ingresar Nombre </label>
+                    <input type="text" name="Nombre" id="Nombre">
+                </div>
+                <div>
+                    <label for="Cedula Profesional">Ingresar Cedula Profesional</label>
+                    <input type="text" name="CP" id="CP">
+                </div>
+                <div>
+                    <label for="Password">Ingresar Password</label>
+                    <input type="text" name="Pass" id="Pass">
+                </div>
+                <div>
+                    <label for="Rol">Ingresar Rol</label>
+                    <input type="text" name="Rol" id="Rol">
+                </div>
+
+                <div class="form_action--button">
+                    <input type="submit" value="Subir">
+                    <input type="reset" value="Resetear">
+                </div>
+            </form>
+
+            <td>
+                <table class="list" id="">
+                    <thead>
+                        <th>RFC</th>
+                        <th>Nombre</th>
+                        <th>Cedula Profesional</th>
+                        <th>Password</th>
+                        <th>Rol del Medico</th>
+                    </thead>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>

@@ -5,10 +5,11 @@
 }
 
 body{
-    font-family: arial;
     background-image: url('24590.jpg');
-
-}
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;   
+   }
 
 .form-login {
     width: 400px;

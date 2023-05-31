@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body{
+ background-image: url('24590.jpg');
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: cover;   
+}
+table{
+    width: 80%;
+    margin: 40px auto;
+    background: rgb(124, 154, 167);
+}
+table.list{
+    text-align: center;
+    width: 100%;
+}
+td{
+    border: 1px solid rgb(204, 200, 200);
+    text-align: left;
+    padding: 0px 15px;
+}
+tr:nth-child(even), table.list thread> tr{
+    background-color: rgb(204, 200, 200);
+}
+
+input[type="text"],input[type="number"]{
+    width: 91%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(204, 200, 200);
+    border-radius: 4px;
+}
+input[type="submit"],input[type="number"]{
+    background: #eee;
+    padding: 12px 20px;
+    margin: 8px 0 10px;
+    display: inline-block;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+input[tyoe="submit"]:hover{
+    background: #4b99d8;
+}
+input[tyoe="reset"]:hover{
+    background: #4b99d8;
+}
+button{
+    background: #eee;
+    padding: 6px 12px;
+    margin: 15px 0 10px;
+    display: inline-block;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover{
+    background: #4b99d8;
+}
