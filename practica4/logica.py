@@ -2,7 +2,7 @@ from tkinter import messagebox
 from tkinter import ttk
 import tkinter as tk
 import sqlite3
-import bcrypt 
+
 
 
 class controladorBD:
@@ -43,7 +43,7 @@ class controladorBD:
                 return
             
             datos = (nom, precio, clasificacion, marca)
-            qrInsert = "insert into bebidas(nombre, precio, clasificacion, marca) values(?,?,?,?)"
+            qrInsert = "insert into almacenbebidas(nombre, precio, clasificacion, marca) values(?,?,?,?)"
             
             #4. Ejecutamos la consulta y cerramos la conexion
             cursor.execute(qrInsert, datos)
@@ -69,12 +69,12 @@ class controladorBD:
                     
                 #5. Ejecutar la consulta y recuperar los datos
                 cursor.execute(sqlSelect, (id,))
-                rsUsuario = cursor.fetchall()
+                rsbebida = cursor.fetchall()
                 
                 #6. cerrar conexion y devolver los datos
-                print(rsUsuario)
+                print(rsbebida)
                 conx.close()
-                return rsUsuario
+                return rsbebida
             except Exception as ex:
                 messagebox.showwarning("Error", str(ex))
                 conx.close()
@@ -132,8 +132,41 @@ class controladorBD:
             messagebox.showinfo("Actualización", "Actualización exitosa")
             
             return None
-        
+     
+    def prombebida(self, precio):
+       conx = self.conexionBD()
+       
+       cursor = conx.cursor()
+       sqlSelect = "select avg(precio) as PrecioPromedio from almacenbebidas"
+       cursor.execute(sqlSelect)
+       rsbebidas = cursor.fetchall()
+       
+       conx.close()
+       return rsbebidas
 
+    def cantidadmarca(self, marca):
+        conx = self.conexionBD()
+        
+        cursor = conx.cursor()
+        sqlSelect = "select count(marca) from almacenbebidas where marca=?"
+        cursor.execute(sqlSelect)
+        rsbebidas = cursor.fetchall()
+        
+        conx.close()
+        return rsbebidas
+    
+    def cantidadclas(self, clasificacion):
+        conx = self.conexionBD()
+        
+        cursor = conx.cursor()
+        sqlSelect = "select count(clasificacion) from almacenbebidas where clasificacion=?"
+        cursor.execute(sqlSelect)
+        rsbebidas = cursor.fetchall()
+        
+        conx.close()
+        return rsbebidas
+        
+    
     def eliminarbebida(self, id):
         #1. preparar la conexion
         conx= self.conexionBD()
@@ -170,5 +203,5 @@ class controladorBD:
             
             return None
          
-         
+    
 

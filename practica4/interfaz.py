@@ -43,14 +43,19 @@ def ejecutaSelectA():
 
   
 def ejecutaUpdate():
-    controlador.actualizarbebida(varid2.get(), varNom2.get(), varCor2.get(), varCon2.get())
+    controlador.actualizarbebida(varid2.get(), varnom2.get(), varclas2.get(), varprecio2.get(), varmarca2.get())
     textBus.delete("1.0","end")
     varid2.set("")
-    varNom2.set("")
-    varCor2.set("")
-    varCon2.set("")
+    varnom2.set("")
+    varclas2.set("")
+    varprecio2.set("")
     return
  
+def prombebidas():
+    controlador.prombebida(precio3.get())
+    precio3.set("")
+    messagebox.showinfo("Promedio", "El promedio de bebidas es: ")
+    return
 
 def ejecutaDelete():
     controlador.eliminarbebida(varBuseliminar.get())  
@@ -160,7 +165,7 @@ titulo3 = Label(pestana3, text="Consultar Registros:", font=("Arial", 20, "bold"
 titulo3.pack(pady=10)
 
 # Creamos un Treeview
-tree = ttk.Treeview(pestana3, columns=(1,2,3), show="headings", height="5")
+tree = ttk.Treeview(pestana3, columns=(1,2,3, 4, 5), show="headings", height="5")
 tree.pack()
 
 # Creamos las columnas del Treeview
@@ -174,14 +179,20 @@ tree.heading(5, text="Marca")
 btnConsulta = Button(pestana3, text="Consultar Registros", command=ejecutaSelectA, bg="#008CBA", fg="white")
 btnConsulta.pack(pady=10)
 
+
+btnprom = Button(pestana3, text="Promedio Precio", command=prombebidas, bg="#008CBA", fg = "white")
+btnprom.pack(pady=10)
+precio3 = tk.DoubleVar()
+txtprecio3 = Label(pestana3, textvariable=precio3, width=15)
+txtprecio3.pack()
+
 # Creamos los elementos para la pestaña 4 (Actualizar usuario)
 titulo4 = Label(pestana4, text="Actualizar Registro", font=("Arial", 20, "bold"))
 titulo4.pack(pady=10)
 
-varid2 = tk.StringVar()
+varid2 = tk.IntVar()
 lblid = Label(pestana4, text="Identificador de Registro: ")
 lblid.pack(pady=5)
-
 txtid = Entry(pestana4, textvariable=varid2, width=30)
 txtid.pack()
 
@@ -198,8 +209,8 @@ lblCor.pack(padx=5)
 txtCor = Entry(pestana4, textvariable=varclas2, width=30)
 txtCor.pack()
 
-lblprecio = Label(pestana4, text="Contraseña:")
-lblCon.pack(pady=5)
+lblprecio = Label(pestana4, text="Precio: ")
+lblprecio.pack(pady=5)
 varprecio2 = tk.IntVar()
 txtCon = Entry(pestana4, textvariable=varprecio2, width=30)
 txtCon.pack()
@@ -210,10 +221,10 @@ lblmarcad.pack(pady=5)
 txtmarcad = Entry(pestana4, textvariable=varmarca2, width=30)
 
 btnActualizar = Button(pestana4, text="Actualizar usuario", command=ejecutaUpdate, bg="#008CBA", fg="white")
-btnActualizar.pack(pady=10)
+btnActualizar.pack(pady=5)
 
 btnLimpiar = Button(pestana4, text="Limpiar campos", command=limpiarCampos, bg="#008CBA", fg="white")
-btnLimpiar.pack(pady=10)
+btnLimpiar.pack(pady=5)
 
 # Creamos los elementos para la pestaña 5 (Eliminar usuario)
 titulo5 = Label(pestana5, text="Eliminar usuario", font=("Arial", 20, "bold"))
