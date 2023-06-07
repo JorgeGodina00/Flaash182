@@ -186,6 +186,8 @@ precio3 = tk.DoubleVar()
 txtprecio3 = Label(pestana3, textvariable=precio3, width=15)
 txtprecio3.pack()
 
+#btncontmarca = Button(pestana3, text="Total Por Marca", command=)
+
 # Creamos los elementos para la pestaña 4 (Actualizar usuario)
 titulo4 = Label(pestana4, text="Actualizar Registro", font=("Arial", 20, "bold"))
 titulo4.pack(pady=10)

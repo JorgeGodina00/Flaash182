@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url("24590.jpg");
+    
+}
+body {
+    text-align: center;
+  }
+
+  h1 {
+    color: black;
+  }
+
+  table {
+    margin: 0 auto;
+    width: 800px;
+    background-color: black; 
+    padding: 20px;
+    align-content: center;
+  }
+
+  input[type="number"] {
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    margin-top: 10px;
+  }
