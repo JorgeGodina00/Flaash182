@@ -19,7 +19,11 @@ mysql = MySQL(app)
 #La ruta se compone de la ruta y su funcion
 @app.route('/')
 def index():
-    return render_template('index.html')
+    cursorSelect= mysql.connection.cursor()
+    cursorSelect.execute("Select * from albums")
+    consulta= cursorSelect.fetchall()
+    #print(consulta)
+    return render_template('index.html', listAlbums= consulta)
 
 @app.route('/guardar', methods=['POST'])
 def guardar():
