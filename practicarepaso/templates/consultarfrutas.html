@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Fruteria La Toronjita</title>
+</head>
+
+<body>
+    {%with mensajes= get_flashed_messages()%}
+        {%if mensajes%}
+            {%for msj in mensajes%}
+                <h3> {{ msj }} </h3>
+            {%endfor%}
+        {% endif %}
+    {%endwith%}
+
+    <br>
+    <br>    
+    <center> <h1>Gestion de Frutas</h1> 
+    <br>
+    <br>
+    <h2>Frutas Almacenados</h2>
+    <br>
+    <table>
+            <thead></thead>
+            <tr>
+               <td>ID:</td>
+               <td>Fruta:</td>
+               <td>Temporada:</td>
+               <td>Precio:</td>
+               <td>Stock:</td> 
+            </tr>
+            <tbody>
+                {% for fruta in listfruta %}
+                    <tr>
+                        <td>{{ fruta.0 }}</td>
+                        <td>{{ fruta.1 }}</td>
+                        <td>{{ fruta.2 }}</td>
+                        <td>{{ fruta.3 }}</td>
+                        <td>{{ fruta.4 }}</td>
+                        <td><a href="/editar/{{ fruta.0 }}">Editar</a></td>
+                        <td><a href="/eliminar/{{ fruta.0 }}">Eliminar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+
+
+
+</body>
+</html>

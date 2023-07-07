@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang= "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Fruteria La Toronjita</title>
+</head>
+<body>
+    
+    <center>
+        <br>
+        <h1>Actualizar Frutass</h1>
+        <br>
+        <br>
+        <form action="/actualizar/{{fruta.0}}" method="POST">
+            <input type="text" name="txtFruta", value="{{fruta.1}}">
+            <input type="text" name="txtTemporada", value="{{fruta.2}}">
+            <input type="text" name="txtPrecio", value="{{fruta.3}}">
+            <input type="text" name="txtStock", value="{{fruta.4}}">
+    
+    
+            <button type="submit"> Actualizar </button>
+    
+        </form>
+    </center>
+</body>

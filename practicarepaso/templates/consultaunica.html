@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Unica</title>
+</head>
+<body>
+    <center>
+        <br>
+        <h1>Consulta Unica</h1>
+        <br>
+        <br>
+        <form action="/consultarunica/" method="POST">
+            <input type="text" name="txtFruta" placeholder="Escribe la Fruta: ">
+            <button type="submit">Consultar</button>
+        </form>
+        <br>
+        <br>
+        <br>
+        <table>
+            <thead></thead>
+            <tr>
+               <td>ID:</td>
+               <td>Fruta:</td>
+               <td>Temporada:</td>
+               <td>Precio:</td>
+               <td>Stock:</td> 
+            </tr>
+            <tbody>
+                {% for fruta in listfruta %}
+                    <tr>
+                        <td>{{ fruta.0 }}</td>
+                        <td>{{ fruta.1 }}</td>
+                        <td>{{ fruta.2 }}</td>
+                        <td>{{ fruta.3 }}</td>
+                        <td>{{ fruta.4 }}</td>
+                    <tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/"><input type="button" value="Regresar"></a>
+    </center>
+</body>
+</html>
