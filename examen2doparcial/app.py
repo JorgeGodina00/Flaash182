@@ -36,12 +36,21 @@ def guardar():
     return redirect(url_for('index'))
 
 
-@app.route('/eliminar/<id>', method='POST')
-def delete(id):
+@app.route('/eliminar/<id>')
+def eliminar(id):
+    id= request.args.get('id')
+    curEliminar= mysql.connection.cursor()
+    curEliminar.execute('Select * from tbflores where id= %s', (id,))
+    consulId= curEliminar.fetchone()
     
-    if request.method == "POST":
-        if request.form.get("confirm") == "yes":
-                    Vnombre= request.form['txtNombre']
+    return render_template('eliminarflores.html',flor= consulId)
+
+
+@app.route('/eliminar2/<id>', methods=['get'])
+def eliminar2(id):
+
+    if request.method == 'get':
+        Vnombre= request.form['txtNombre']
         Vcantidad= request.form['txtCantidad']
         Vprecio= request.form['txtPrecio']
 
@@ -49,14 +58,8 @@ def delete(id):
         CS.execute("delete from tbflores WHERE id= %s", (Vnombre, Vcantidad, Vprecio, id))
         mysql.connection.commit()
         
-        flash("Registro Eliminado Correctamente")
-        return redirect(url_for('index'))            
-    
-    else:
-        
-        return render_template("index.html")
-
-
+    flash("Registro Eliminado Correctamente")
+    return redirect(url_for('index'))
 
 
 
