@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Flores</title>
+</head>
+<body>
+    <h1>Eliminar Registros de Flores</h1>
+    <form action="/eliminar/{{flor.0}}" method="POST">
+        <input type="text" name="txtID", value="{{flor.0}}">
+        <input type="text" name="txtTitulo", value="{{flor.1}}">
+        <input type="text" name="txtCantidad", value="{{flor.2}}">
+        <input type="text" name="txtPrecio", value="{{flor.3}}">
+        <button type="submit">Eliminar Registro</button>        
+    </form>
+</body>
+</html>

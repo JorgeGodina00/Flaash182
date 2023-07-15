@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardar Registro de Flores</title>
+</head>
+<body>
+    <br>
+    <center><h1>Registro de Flores</h1></center>
+    <br>
+    <br>
+    <center>
+        <form action="/guardar" method="POST">
+            <input type="text" name="txtNombre" placeholder="Inserta el Nombre">
+            <input type="text" name="txtCantidad" placeholder="Inserta la Cantidad">
+            <input type="number" name="txtPrecio" placeholder="Inserta el Precio">
+
+            <button type="submit">Guardar Registro</button>
+        </form>
+
+        {%with mensajes= get_flashed_messages()%}
+        {%if mensajes%}
+            {%for msj in mensajes%}
+                <h3> {{ msj }} </h3>
+            {%endfor%}
+        {% endif %}
+    {%endwith%}
+
+    <br>
+    <br>    
+    <center> <h1>Gestion de Flores</h1> 
+    <br>
+    <br>
+    <h2>Flores Almacenadas</h2>
+    <br>
+    <table>
+            <thead></thead>
+            <tr>
+               <td>ID:</td>
+               <td>Nombre:</td>
+               <td>Cantidad:</td>
+               <td>Precio:</td> 
+            </tr>
+            <tbody>
+                {% for flor in listflores %}
+                    <tr>
+                        <td>{{ flor.0 }}</td>
+                        <td>{{ flor.1 }}</td>
+                        <td>{{ flor.2 }}</td>
+                        <td>{{ flor.3 }}</td>
+                        <td>{{ flor.4 }}</td>
+                        <td><a href="/eliminar/{{ flor.0 }}">Eliminar</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+    </center>
+    
+</body>
+</html>
